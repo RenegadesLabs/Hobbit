@@ -1,5 +1,6 @@
 package com.renegades.labs.hobbit;
 
+import java.util.Locale;
 import java.util.Random;
 
 /**
@@ -7,22 +8,21 @@ import java.util.Random;
  */
 
 public class ChatMessage {
-    public String body, sender, receiver, senderName;
-    public String Date, Time;
-    public String msgid;
+    public String body, sender, receiver;
+    public String date, time;
+    public String msgId;
     public boolean isMine;// Did I send the message.
 
-    public ChatMessage(String Sender, String receiver, String messageString,
-                       String ID, boolean isMINE) {
+    public ChatMessage(String sender, String receiver, String messageString,
+                       String msgId, boolean isMine) {
         body = messageString;
-        isMine = isMINE;
-        sender = Sender;
-        msgid = ID;
+        this.isMine = isMine;
+        this.sender = sender;
+        this.msgId = msgId;
         this.receiver = receiver;
-        senderName = sender;
     }
 
     public void setMsgID() {
-        msgid += "-" + String.format("%02d", new Random().nextInt(100));
+        msgId += "-" + String.format(Locale.ENGLISH, "%02d", new Random().nextInt(100));
     }
 }

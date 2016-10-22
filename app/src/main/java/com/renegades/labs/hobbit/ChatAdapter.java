@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ChatAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
-    ArrayList<ChatMessage> chatMessageList;
+    private ArrayList<ChatMessage> chatMessageList;
 
     public ChatAdapter(Activity activity, ArrayList<ChatMessage> list) {
         chatMessageList = list;
@@ -46,7 +46,7 @@ public class ChatAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ChatMessage message = (ChatMessage) chatMessageList.get(position);
+        ChatMessage message = chatMessageList.get(position);
         View vi = convertView;
         if (convertView == null)
             vi = inflater.inflate(R.layout.chatbubble, null);
@@ -61,12 +61,12 @@ public class ChatAdapter extends BaseAdapter {
         // if message is mine then align to right
         if (message.isMine) {
             layout.setBackgroundResource(R.drawable.bubble2);
-            parent_layout.setGravity(Gravity.RIGHT);
+            parent_layout.setGravity(Gravity.END);
         }
         // If not mine then align to left
         else {
             layout.setBackgroundResource(R.drawable.bubble1);
-            parent_layout.setGravity(Gravity.LEFT);
+            parent_layout.setGravity(Gravity.START);
         }
         msg.setTextColor(Color.BLACK);
         return vi;

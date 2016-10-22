@@ -66,8 +66,8 @@ public class Chats extends Fragment implements View.OnClickListener {
                     message, "" + random.nextInt(1000), true);
             chatMessage.setMsgID();
             chatMessage.body = message;
-            chatMessage.Date = CommonMethods.getCurrentDate();
-            chatMessage.Time = CommonMethods.getCurrentTime();
+            chatMessage.date = CommonMethods.getCurrentDate();
+            chatMessage.time = CommonMethods.getCurrentTime();
             msg_edittext.setText("");
             chatAdapter.add(chatMessage);
             chatAdapter.notifyDataSetChanged();

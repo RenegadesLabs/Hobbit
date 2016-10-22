@@ -67,7 +67,7 @@ public class MyXMPP {
         this.context = context;
         init();
 
-        builder = (NotificationCompat.Builder) new NotificationCompat.Builder(context);
+        builder = new NotificationCompat.Builder(context);
 
     }
 
@@ -268,7 +268,7 @@ public class MyXMPP {
         }
         final Message message = new Message();
         message.setBody(body);
-        message.setStanzaId(chatMessage.msgid);
+        message.setStanzaId(chatMessage.msgId);
         message.setType(Message.Type.chat);
 
         try {
