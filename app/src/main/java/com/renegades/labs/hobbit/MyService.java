@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.IBinder;
 
-import org.jivesoftware.smack.chat.Chat;
-
-
 /**
  * Created by Виталик on 04.10.2016.
  */
@@ -19,16 +16,11 @@ public class MyService extends Service {
     private static final String PASSWORD = "tolkien";
     public static ConnectivityManager cm;
     public static MyXMPP xmpp;
-    public static boolean ServerchatCreated = false;
-    String text = "";
-
 
     @Override
     public IBinder onBind(final Intent intent) {
-        return new LocalBinder<MyService>(this);
+        return new LocalBinder<>(this);
     }
-
-    public Chat chat;
 
     @Override
     public void onCreate() {
@@ -52,7 +44,7 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        xmpp.connection.disconnect();
+        MyXMPP.connection.disconnect();
     }
 
     public static boolean isNetworkConnected() {
