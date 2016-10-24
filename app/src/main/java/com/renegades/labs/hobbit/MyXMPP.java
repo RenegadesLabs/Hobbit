@@ -404,7 +404,7 @@ public class MyXMPP {
 
         private void processMessage(final ChatMessage chatMessage) {
             chatMessage.isMine = false;
-            Chats.chatlist.add(chatMessage);
+            Chats.chatList.add(chatMessage);
             new Handler(Looper.getMainLooper()).post(new Runnable() {
 
                 @Override
