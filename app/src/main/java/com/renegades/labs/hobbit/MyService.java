@@ -12,7 +12,7 @@ import android.os.IBinder;
 
 public class MyService extends Service {
     private static final String DOMAIN = "xmpp.jp";
-    private static final String USERNAME = "hobbit1";
+    private static final String USERNAME = "hobbit2";
     private static final String PASSWORD = "tolkien";
     public static ConnectivityManager cm;
     public static MyXMPP xmpp;
